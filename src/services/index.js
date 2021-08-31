@@ -41,3 +41,20 @@ export const fetchMovies = async () => {
         console.log(error)
     }
 }
+
+// Function that fetch genres from the API
+export const fetchGenres = async () => {
+    try {
+        const { data } = await axios.get(GENRE_URL, {
+            params: {
+                api_key: API_KEY,
+                language: 'en_US',
+                page: 1
+            }
+        })
+        return data.genres
+    } catch (error) {
+        console.log(error)
+    }
+}
+
