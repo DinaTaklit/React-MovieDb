@@ -5,13 +5,17 @@ const AppContext = React.createContext()
 
 export const AppProvider = ({children}) => {
 
+    // Loading
+    const [loading, setLoading] = useState(true)
     // Global state for now playing movies
     const [nowPlayingMovies, setNowPlayingMovies] = useState([])
 
 
     useEffect(() => {
+        setLoading(true)
         const fetchAPI = async() =>{
             setNowPlayingMovies(await fetchMovies())
+            setLoading(false)
         }
         fetchAPI()
     }, [])
@@ -19,6 +23,7 @@ export const AppProvider = ({children}) => {
 
     return (
         <AppContext.Provider value={{
+            loading,
             nowPlayingMovies
         }}>
             {children}
