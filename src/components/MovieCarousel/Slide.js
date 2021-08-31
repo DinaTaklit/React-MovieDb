@@ -65,7 +65,8 @@ function Slide({ slide, offset }) {
         <div
           className="slideContent"
           style={{
-            backgroundImage: `url('${slide.backPoster}')`
+            backgroundImage: `url('${slide.backPoster}')`,
+            objectFit: 'cover'
           }}
         >
           <div className="slideContentInner">

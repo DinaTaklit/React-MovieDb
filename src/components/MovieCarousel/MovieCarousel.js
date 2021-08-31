@@ -14,10 +14,11 @@ function MovieCrousel({offset}) {
       slideLength: nowPlayingMovies.length,
     };
 
+    // Use use reducer to dispatch events and take actions
     const [state, dispatch] = useReducer(reducer, initialState)
     
     return (
-      <div className="slides">
+      <div className="slides py-4">
         <button onClick={() => dispatch({ type: "PREV" })}>‹</button>    
           {[...nowPlayingMovies, ...nowPlayingMovies, ...nowPlayingMovies].map((movie, i) => {
             let offset = nowPlayingMovies.length + (state.slideIndex - i);
