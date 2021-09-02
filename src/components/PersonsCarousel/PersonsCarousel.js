@@ -49,15 +49,6 @@ function PersonsCarousel({persons}) {
       };
 
     return (
-        <section  className="mt-3">
-            <div className="row">
-                <div className="col">
-                <p className="font-weight-bold" style={{ color: "#5a606b" }}>
-                    TRENDING PERSONS ON THIS WEEK
-                </p>
-                </div>
-            </div>
-
             <div className="row mt-3">
               <div className="col">
                 <Carousel 
@@ -77,7 +68,6 @@ function PersonsCarousel({persons}) {
                 </Carousel>
               </div>
             </div>
-        </section>
     )
 }
 
