@@ -108,3 +108,30 @@ export const fetchTrendingPersons = async () => {
         console.log(error)
     }
 }
+
+// Function that fetch the top rated movies
+export const fetchTopRatedMovies = async () => {
+    try {
+        const { data } = await axios.get(TOP_RATED_YRL, {
+            params: {
+                api_key: API_KEY,
+                language: 'en_US',
+                page: 1
+            }
+        })
+        return data.results.map(movie => {
+            const {id, backdrop_path, popularith, title, poster_path, overview, vote_average} = movie
+            return {
+                id, 
+                backPoster: `${POSTER_URL}${backdrop_path}`,
+                popularity: popularith,
+                title, 
+                poster: `${POSTER_URL}${poster_path}`,
+                overview,
+                rating: vote_average
+            }
+        })
+    } catch (error) {
+        console.log(error)
+    }
+}
