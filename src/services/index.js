@@ -85,3 +85,26 @@ export const fetchMoviesByGenre = async (genreId) => {
         console.log(error)
     }
 }
+
+// Function that fetch the trending persons of the week
+export const fetchTrendingPersons = async () => {
+    try {
+        const { data } = await axios.get(PERSON_URL, {
+            params: {
+                api_key: API_KEY
+            }
+        })
+        return data.results.map(person => {
+            const {id, name, popularity, profile_path, known_for_department} = person
+            return {
+                id,
+                name,
+                popularity,
+                profile: `${POSTER_URL}${profile_path}`,
+                known: known_for_department,
+            }
+        })
+    } catch (error) {
+        console.log(error)
+    }
+}
