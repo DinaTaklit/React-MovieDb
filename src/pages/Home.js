@@ -6,7 +6,7 @@ import PersonsCarousel from '../components/PersonsCarousel/PersonsCarousel'
 function Home() {
 
     // Get global context 
-    const{loading, moviesByGenre, trendingPersons}= useGlobalContext()
+    const{loading, moviesByGenre, trendingPersons, topRatedMovies}= useGlobalContext()
         
     if(loading) {
         return (
@@ -21,6 +21,12 @@ function Home() {
             <GenreList/> 
             <MovieCarousel movies={moviesByGenre}/>
             <PersonsCarousel persons={trendingPersons}/>
+            <section className="mt-4"> 
+                <p className="font-weight-bold" style={{ color: "#5a606b" }}>
+                    TOP RATED MOVIES
+                </p>
+                <MovieCarousel movies={topRatedMovies}/>
+            </section>
         </div>
     )
 }
