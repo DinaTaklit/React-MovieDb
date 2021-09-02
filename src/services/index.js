@@ -58,3 +58,30 @@ export const fetchGenres = async () => {
     }
 }
 
+// Function that fetch movies based on the genre
+export const fetchMoviesByGenre = async (genreId) => {
+    try {
+        const { data } = await axios.get(MOVIES_URL, {
+            params: {
+                api_key: API_KEY,
+                language: 'en_US',
+                page: 1,
+                with_genres: genreId
+            }
+        })
+        return data.results.map(movie => {
+            const {id, backdrop_path, popularith, title, poster_path, overview, vote_average} = movie
+            return {
+                id, 
+                backPoster: `${POSTER_URL}${backdrop_path}`,
+                popularity: popularith,
+                title, 
+                poster: `${POSTER_URL}${poster_path}`,
+                overview,
+                rating: vote_average
+            }
+        })
+    } catch (error) {
+        console.log(error)
+    }
+}
