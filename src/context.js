@@ -2,7 +2,8 @@ import React, {useContext, useState, useEffect} from 'react'
 import {
     fetchMovies,
     fetchGenres,
-    fetchMoviesByGenre
+    fetchMoviesByGenre,
+    fetchTrendingPersons,
 } from '../src/services'
 
 const AppContext = React.createContext()
@@ -17,6 +18,8 @@ export const AppProvider = ({children}) => {
     const [genres, setGenres] = useState([]);
     // Global state for movies by genre
     const [moviesByGenre, setMoviesByGenre] = useState([]);
+    // Global state for trending persons
+    const [trendingPersons, setTrendingPersons] = useState([]);
 
     useEffect(() => {
         setLoading(true)
@@ -24,6 +27,7 @@ export const AppProvider = ({children}) => {
             setNowPlayingMovies(await fetchMovies())
             setGenres(await fetchGenres())
             setMoviesByGenre(await fetchMoviesByGenre())
+            setTrendingPersons(await fetchTrendingPersons())
             setLoading(false)
         }
         fetchAPI()
@@ -35,7 +39,8 @@ export const AppProvider = ({children}) => {
             loading,
             nowPlayingMovies,
             genres,
-            moviesByGenre
+            moviesByGenre,
+            trendingPersons,
         }}>
             {children}
         </AppContext.Provider>
