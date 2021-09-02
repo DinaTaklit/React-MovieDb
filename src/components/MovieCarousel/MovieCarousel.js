@@ -53,7 +53,7 @@ function MovieCarousel({movies}) {
     };
 
     return (
-      <div className="row mt-3">
+      <div className="row">
         <div className="col">
         <Carousel 
           responsive={responsive}
