@@ -1,0 +1,15 @@
+footer{
+    color: #5a606b;
+    ul.social-icons{
+        a{
+            color: white;
+            border-radius: 50%;
+            background-color: rgba($color: #5a606b, $alpha: .8);
+            padding: .3rem .5rem;
+        }
+        a:hover{
+            background-color: rgba($color: #5a606b, $alpha: 1);
+        }
+    }
+
+}
