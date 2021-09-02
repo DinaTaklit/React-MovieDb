@@ -44,6 +44,13 @@ function Home() {
                 </p>
                 <MovieCarousel movies={topRatedMovies}/>
             </section>
+
+            <hr className="mt-5" style={{ borderTop: "1px solid #5a606b" }}></hr>
+
+            {/* Footer */}
+            <footer className="mt-5">
+                <Footer/>
+            </footer>
         </div>
     )
 }
