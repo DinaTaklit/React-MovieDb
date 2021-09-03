@@ -8,12 +8,6 @@ function Footer() {
             <div className="col-md-8 col-sm-6">
           <h3>ABOUT ME</h3>
           <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Animi
-            error earum perspiciatis praesentium sint ipsum provident blanditiis
-            pariatur necessitatibus voluptas, cum, atque iste eligendi autem,
-            culpa cupiditate placeat facilis repellat.
-          </p>
-          <p>
             I am Dina TAKLIT, a software engineer and a web developer who loves building web apps. I have a passion for Web development and Artificial Intelligence Field. I spend my time writing clean, well commented, organized, and optimized code.  
           </p>
           <ul className="list-inline social-icons">
