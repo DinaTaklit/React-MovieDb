@@ -151,7 +151,7 @@ export const fetchMovieDetail = async (id) => {
     }
 }
 
-// Function that fetch movie Video
+// Function that fetch movie Videos
 export const fetchMovieVideos = async (id) => {
     try {
         const { data } = await axios.get(`${MOVIE_URL}/${id}/videos`, {
@@ -161,6 +161,29 @@ export const fetchMovieVideos = async (id) => {
             }
         });
         return data.results[0].key
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+// Function that fetch movie casts
+export const fetchMovieCasts = async (id) => {
+    try {
+        const { data } = await axios.get(`${MOVIE_URL}/${id}/credits`, {
+            params: {
+                api_key: API_KEY,
+                language: 'en_US'
+            }
+        });
+        return data.cast.map(cast => {
+            const {cast_id, name, character, profile_path} = cast
+            return {
+                id:cast_id,
+                name,
+                character,
+                profile: `${POSTER_URL}${profile_path}`
+            }
+        })
     } catch (error) {
         console.log(error)
     }
