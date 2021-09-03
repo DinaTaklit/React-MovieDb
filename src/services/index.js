@@ -150,3 +150,18 @@ export const fetchMovieDetail = async (id) => {
         console.log(error)
     }
 }
+
+// Function that fetch movie Video
+export const fetchMovieVideos = async (id) => {
+    try {
+        const { data } = await axios.get(`${MOVIE_URL}/${id}/videos`, {
+            params: {
+                api_key: API_KEY,
+                language: 'en_US'
+            }
+        });
+        return data.results[0].key
+    } catch (error) {
+        console.log(error)
+    }
+}
