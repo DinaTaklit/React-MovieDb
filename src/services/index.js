@@ -188,3 +188,29 @@ export const fetchMovieCasts = async (id) => {
         console.log(error)
     }
 }
+
+// Function that fetch similar movies for the given movie id
+export const fetchSimilarMovies = async (id) => {
+    try {
+        const { data } = await axios.get(`${MOVIE_URL}/${id}/similar`, {
+            params: {
+                api_key: API_KEY,
+                language: 'en_US',
+            }
+        });
+        return data.results.map(movie => {
+            const {id, backdrop_path, popularith, title, poster_path, overview, vote_average} = movie
+            return {
+                id, 
+                backPoster: `${POSTER_URL}${backdrop_path}`,
+                popularity: popularith,
+                title, 
+                poster: `${POSTER_URL}${poster_path}`,
+                overview,
+                rating: vote_average
+            }
+        })
+    } catch (error) {
+        console.log(error)
+    }
+}
