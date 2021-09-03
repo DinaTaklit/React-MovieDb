@@ -135,3 +135,18 @@ export const fetchTopRatedMovies = async () => {
         console.log(error)
     }
 }
+
+// Function that fetch movie detail for the given movie id
+export const fetchMovieDetail = async (id) => {
+    try {
+        const { data } = await axios.get(`${MOVIE_URL}/${id}`, {
+            params: {
+                api_key: API_KEY,
+                language: 'en_US'
+            }
+        });
+        return data
+    } catch (error) {
+        console.log(error)
+    }
+}
