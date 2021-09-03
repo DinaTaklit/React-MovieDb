@@ -7,6 +7,7 @@ import {
     fetchTopRatedMovies,
     fetchMovieDetail,
     fetchMovieVideos,
+    fetchMovieCasts,
 } from '../src/services'
 
 const AppContext = React.createContext()
@@ -29,6 +30,8 @@ export const AppProvider = ({children}) => {
     const [movieDetail, setMovieDetail] = useState({});
     // Global state for movie videos
     const [movieVideos, setMovieVideos] = useState([]);
+    // Global state for movie casts
+    const [movieCasts, setMovieCasts] = useState([]);
 
     useEffect(() => {
         setLoading(true)
@@ -40,6 +43,7 @@ export const AppProvider = ({children}) => {
             setTopRatedMovies(await fetchTopRatedMovies())
             setMovieDetail(await fetchMovieDetail())
             setMovieVideos(await fetchMovieVideos())
+            setMovieCasts(await fetchMovieCasts())
             setLoading(false)
         }
         fetchAPI()
@@ -56,6 +60,7 @@ export const AppProvider = ({children}) => {
             topRatedMovies,
             movieDetail,
             movieVideos,
+            movieCasts,
         }}>
             {children}
         </AppContext.Provider>
