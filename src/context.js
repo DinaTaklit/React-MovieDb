@@ -8,6 +8,7 @@ import {
     fetchMovieDetail,
     fetchMovieVideos,
     fetchMovieCasts,
+    fetchSimilarMovies,
 } from '../src/services'
 
 const AppContext = React.createContext()
@@ -32,6 +33,8 @@ export const AppProvider = ({children}) => {
     const [movieVideos, setMovieVideos] = useState([]);
     // Global state for movie casts
     const [movieCasts, setMovieCasts] = useState([]);
+    // Global state for similar movies
+    const [similarMovies, setSimilarMovies] = useState([]);
 
     useEffect(() => {
         setLoading(true)
@@ -44,6 +47,7 @@ export const AppProvider = ({children}) => {
             setMovieDetail(await fetchMovieDetail())
             setMovieVideos(await fetchMovieVideos())
             setMovieCasts(await fetchMovieCasts())
+            setSimilarMovies(await fetchSimilarMovies())
             setLoading(false)
         }
         fetchAPI()
@@ -61,6 +65,7 @@ export const AppProvider = ({children}) => {
             movieDetail,
             movieVideos,
             movieCasts,
+            similarMovies,
         }}>
             {children}
         </AppContext.Provider>
