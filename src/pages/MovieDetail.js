@@ -2,7 +2,8 @@ import {useState, useEffect} from 'react'
 import { useGlobalContext } from '../context'
 import MovieDetailHeader from '../components/MovieDetail/MovieDetailHeader'
 import {
-    fetchMovieDetail
+    fetchMovieDetail,
+    fetchMovieVideo,
 } from '../services'
 
 function MovieDetail({match}) {
@@ -10,16 +11,20 @@ function MovieDetail({match}) {
    // Get global context
     const {loading, setLoading} = useGlobalContext()
 
-    // Global state for movie detail
+    // Movie detail state
     const [movieDetail, setMovieDetail] = useState({});
 
-    // Global state to get params (id) from url for single movie
+    // Movie video state
+    const [posterVideo, setPosterVideo] = useState('');
+
+    // Movie Id state
     const [movieId, setMovieId] = useState(match.params.id);
     
     useEffect(() => {
         setLoading(true)
         const fetchAPI = async() =>{
             setMovieDetail(await fetchMovieDetail(movieId))
+            setPosterVideo( await fetchMovieVideo(movieId))
         }
         fetchAPI()
         setLoading(false)
@@ -35,9 +40,9 @@ function MovieDetail({match}) {
     }
 
     return (
-        <section className="container">
-            <MovieDetailHeader movieDetail={movieDetail}/>
-        </section>
+        <main className="container">
+            <MovieDetailHeader movieDetail={movieDetail} posterVideo={posterVideo}/>
+        </main>
     )
 }
 
