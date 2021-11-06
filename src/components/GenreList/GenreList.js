@@ -1,13 +1,9 @@
 import React from 'react'
-import { useGlobalContext } from '../../context';
 import './GenreList.scss'
 
-function GenreList() {
+function GenreList({genres}) {
 
-    // Get global context 
-    const {genres} = useGlobalContext()
-
-    const handleGenreClick = () => {
+    const handleGenreClick = (id) => {
       
     };
 
