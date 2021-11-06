@@ -16,21 +16,21 @@ import {
 
 
 function Home() {
-    // Get the gloabal loading state
-    const {loading, setLoading} = useGlobalContext()
+    // Get the gloabal context
+    const {
+        loading,
+        setLoading, 
+        moviesByGenre, 
+        setMoviesByGenre} = useGlobalContext()
 
     // State for now playing movies
     const [nowPlayingMovies, setNowPlayingMovies] = useState([])
     // State for genres
     const [genres, setGenres] = useState([]);
-    // State for movies by genre
-    const [moviesByGenre, setMoviesByGenre] = useState([]);
     // State for trending persons
     const [trendingPersons, setTrendingPersons] = useState([]);
     // State for top rated movies
     const [topRatedMovies, setTopRatedMovies] = useState([]);
-
-
 
     useEffect(() => {
         setLoading(true)
