@@ -9,6 +9,7 @@ function MovieDetailInfo({movieDetail}) {
                 <ReactStars
                 className="RateStar"
                 count={vote_average}
+                size = {20}
                 ></ReactStars>
             </div>
             <div className="mt-3">
