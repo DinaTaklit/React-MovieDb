@@ -7,7 +7,7 @@ const MOVIE_URL = `${URL}/movie`
 const GENRE_URL = `${URL}/genre/movie/list`
 const MOVIES_URL = `${URL}/discover/movie`
 const PERSON_URL = `${URL}/trending/person/week`
-const POSTER_URL = 'https://image.tmdb.org/t/p/original/' // to get poster images
+const POSTER_URL = 'https://image.tmdb.org/t/p/original' // to get poster images
 
 
 // Function to fetch the movies that are playing now from the API 
@@ -145,7 +145,11 @@ export const fetchMovieDetail = async (id) => {
                 language: 'en_US'
             }
         });
-        return data
+        const { backdrop_path, title} = data
+        return {
+            poster: `${POSTER_URL}${backdrop_path}`,
+            title
+        }
     } catch (error) {
         console.log(error)
     }

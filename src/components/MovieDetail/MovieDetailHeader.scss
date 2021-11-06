@@ -1,0 +1,24 @@
+.MoviePoster {
+    background-size: cover;
+    background-position: 50% 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 70vh;
+}
+
+.caption {
+    color: white;
+    text-align: center;
+    font-size: 2rem;
+}
+
+.play-icon {
+    font-size: 4rem;
+    color: #f4c10f;
+    border-radius: 50%;
+    background-color: white;
+    cursor: pointer;
+}
