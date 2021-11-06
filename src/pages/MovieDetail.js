@@ -3,10 +3,12 @@ import { useGlobalContext } from '../context'
 import MovieDetailHeader from '../components/MovieDetail/MovieDetailHeader'
 import GenreList from '../components/GenreList/GenreList'
 import MovieDetailInfo from '../components/MovieDetail/MovieDetailInfo'
+import PersonsCarousel from '../components/PersonsCarousel/PersonsCarousel'
 
 import {
     fetchMovieDetail,
     fetchMovieVideo,
+    fetchMovieCasts,
 } from '../services'
 
 function MovieDetail({match}) {
@@ -23,11 +25,15 @@ function MovieDetail({match}) {
     // Movie Id state
     const [movieId, setMovieId] = useState(match.params.id);
     
+    // Movie casts state
+    const [movieCasts, setMovieCasts] = useState([]);
+
     useEffect(() => {
         setLoading(true)
         const fetchAPI = async() =>{
             setMovieDetail(await fetchMovieDetail(movieId))
             setPosterVideo( await fetchMovieVideo(movieId))
+            setMovieCasts(await fetchMovieCasts(movieId))
         }
         fetchAPI()
         setLoading(false)
@@ -52,6 +58,11 @@ function MovieDetail({match}) {
             {/* Movie Detail Info */}
             <MovieDetailInfo movieDetail={movieDetail}/>
 
+            {/* Movie Cast */}
+            <div className="mt-3">
+                <p className="title">CASTS</p>
+                <PersonsCarousel persons={movieCasts}/>
+            </div>
         </main>
     )
 }

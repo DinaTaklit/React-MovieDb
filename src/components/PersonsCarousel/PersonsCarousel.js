@@ -5,7 +5,7 @@ import 'react-multi-carousel/lib/styles.css'
 function PersonsCarousel({persons}) {
 
     const trendingPersons = persons.map((person) => {
-      const {id, name, profile, known} = person
+      const {id, name, profile, known, character} = person
         return (
           <div className="persons col text-center" key={id}>
             <img
@@ -18,7 +18,8 @@ function PersonsCarousel({persons}) {
               className="font-weight-light text-center"
               style={{ color: "#5a606b" }}
             >
-              Trending for {known}
+              {known && `Trending for ${known}` }
+              {character && `${character}`}
             </p>
           </div>
         );

@@ -146,7 +146,6 @@ export const fetchMovieDetail = async (movideId) => {
                 language: 'en_US'
             }
         });
-        console.log(data)
         const { id, backdrop_path, title, genres,
             vote_average, overview, release_date, runtime, budget, homepage} = data
         return {
