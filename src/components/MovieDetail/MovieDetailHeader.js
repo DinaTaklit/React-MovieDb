@@ -21,7 +21,7 @@ function MovieDetailHeader({movieDetail, posterVideo}) {
                         background: `url(${posterImage})`,
                         }}
                     >
-                    <div>
+                    <div style={{zIndex:1}}>
                         <FaPlayCircle 
                             className="play-icon"
                             onClick={() => {
