@@ -1,27 +1,42 @@
 import {FaPlayCircle} from 'react-icons/fa'
 import './MovieDetailHeader.scss'
+import { useGlobalContext } from '../../context'
 
-function MovieDetailHeader({movieDetail}) {
-    const {title, poster} = movieDetail
+import MoviePlayerModal from './MoviePlayerModal'
+
+function MovieDetailHeader({movieDetail, posterVideo}) {
+
+    const {title, posterImage} = movieDetail
+
+    // Get Modalte state from context
+    const {setModalIsOpen} = useGlobalContext()
 
     return (
-        <div className="MoviePoster" 
-                style={{
-                    background: `url(${poster})`,
-                    }}
-                >
+        <section className="row">
 
-                <div>
-                    <FaPlayCircle 
-                        className="play-icon"
-                    />
-                </div>
-                <div
-                    className="caption"
-                >
-                    {title}
-                </div>
-        </div>
+            <MoviePlayerModal title ={title} posterVideo={posterVideo}/>
+
+            <div className="MoviePoster" 
+                    style={{
+                        background: `url(${posterImage})`,
+                        }}
+                    >
+                    <div>
+                        <FaPlayCircle 
+                            className="play-icon"
+                            onClick={() => {
+                                setModalIsOpen(true);
+                            }}
+                        />
+                    </div>
+                    <div
+                        className="caption"
+                    >
+                        {title}
+                    </div>
+            </div>
+        </section>
+
     )
 }
 
