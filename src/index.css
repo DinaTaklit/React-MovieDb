@@ -1,21 +1,35 @@
 *,
-*::before
-*::after{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
-  
+
 html,
 body,
 #root {
-  height: 100%; 
-  width: 100%; 
+  height: 100%;
+  width: 100%;
   font-size: 3vmin;
 }
 
 body {
-    display: flex;
-    justify-content: center;
-    /* align-items: center; */
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+}
+
+.RateStar {
+  color: "#f4c10f";
+  font-size: 2rem;
+}
+
+.title {
+  color: #5a606b;
+  font-weight: bold;
+}
+
+.movie-info {
+  color: "#f4c10f";
 }
