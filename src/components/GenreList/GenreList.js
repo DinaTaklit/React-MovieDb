@@ -1,10 +1,19 @@
-import React from 'react'
+import { useGlobalContext } from '../../context'
 import './GenreList.scss'
+import {
+  fetchMoviesByGenre,
+} from '../../services'
+
 
 function GenreList({genres}) {
 
-    const handleGenreClick = (id) => {
-      
+    // Get the gloabal context
+    const {
+      setMoviesByGenre} = useGlobalContext()
+
+    // Function that get the movies by genre after a click on genre
+    const handleGenreClick = async(id) => {
+      setMoviesByGenre(await fetchMoviesByGenre(id))
     };
 
     const genreList = genres.map((item, index) => {
