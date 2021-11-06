@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import { useGlobalContext } from '../context'
 import MovieCarouselHeader from '../components/MovieCarouselHeader/MovieCarouselHeader'
 import GenreList from '../components/GenreList/GenreList'
@@ -5,10 +6,45 @@ import MovieCarousel from '../components/MovieCarousel/MovieCarousel'
 import PersonsCarousel from '../components/PersonsCarousel/PersonsCarousel'
 import Footer from '../components/Footer/Footer'
 
-function Home() {
+import {
+    fetchMovies,
+    fetchGenres,
+    fetchMoviesByGenre,
+    fetchTrendingPersons,
+    fetchTopRatedMovies,
+} from '../services'
 
-    // Get global context 
-    const{loading, moviesByGenre, trendingPersons, topRatedMovies}= useGlobalContext()
+
+function Home() {
+    // Get the gloabal loading state
+    const {loading, setLoading} = useGlobalContext()
+
+    // State for now playing movies
+    const [nowPlayingMovies, setNowPlayingMovies] = useState([])
+    // State for genres
+    const [genres, setGenres] = useState([]);
+    // State for movies by genre
+    const [moviesByGenre, setMoviesByGenre] = useState([]);
+    // State for trending persons
+    const [trendingPersons, setTrendingPersons] = useState([]);
+    // State for top rated movies
+    const [topRatedMovies, setTopRatedMovies] = useState([]);
+
+
+
+    useEffect(() => {
+        setLoading(true)
+        const fetchAPI = async() =>{
+            setNowPlayingMovies(await fetchMovies())
+            setGenres(await fetchGenres())
+            setMoviesByGenre(await fetchMoviesByGenre(28))
+            setTrendingPersons(await fetchTrendingPersons())
+            setTopRatedMovies(await fetchTopRatedMovies())
+            setLoading(false)
+        }
+        fetchAPI()
+    }, [])
+
         
     if(loading) {
         return (
@@ -20,11 +56,11 @@ function Home() {
     return (
         <div className="container">
             {/* Header: Now playing movies */}
-            <MovieCarouselHeader/>
+            <MovieCarouselHeader nowPlayingMovies={nowPlayingMovies}/>
 
             {/* Movies By genre */}
             <section className="mt-5"> 
-                <GenreList/> 
+                <GenreList genres={genres}/> 
                 <MovieCarousel movies={moviesByGenre}/>
             </section>
 
