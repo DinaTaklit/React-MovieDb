@@ -5,6 +5,7 @@ import GenreList from '../components/GenreList/GenreList'
 import MovieDetailInfo from '../components/MovieDetail/MovieDetailInfo'
 import PersonsCarousel from '../components/PersonsCarousel/PersonsCarousel'
 import MovieCarousel from '../components/MovieCarousel/MovieCarousel'
+import Footer from '../components/Footer/Footer'
 
 import {
     fetchMovieDetail,
@@ -55,28 +56,33 @@ function MovieDetail({match}) {
     }
 
     return (
-        <main className="container">
-            {/* Movie Poster */}
-            <MovieDetailHeader movieDetail={movieDetail} posterVideo={posterVideo}/>
-            {
-                movieDetail.genres && <GenreList genres={movieDetail.genres}/>
-            }
-            {/* Movie Detail Info */}
-            <MovieDetailInfo movieDetail={movieDetail}/>
+        <>
+            <main className="container">
+                {/* Movie Poster */}
+                <MovieDetailHeader movieDetail={movieDetail} posterVideo={posterVideo}/>
+                {
+                    movieDetail.genres && <GenreList genres={movieDetail.genres}/>
+                }
+                {/* Movie Detail Info */}
+                <MovieDetailInfo movieDetail={movieDetail}/>
 
-            {/* Movie Cast */}
-            <div className="mt-3">
-                <p className="title">CASTS</p>
-                <PersonsCarousel persons={movieCasts}/>
-            </div>
+                {/* Movie Cast */}
+                <div className="mt-3">
+                    <p className="title">CASTS</p>
+                    <PersonsCarousel persons={movieCasts}/>
+                </div>
 
-            {/* Similar movies */}
-            <div className="mt-3">
-                <p className="title">SIMILAR MOVIES</p>
-                <MovieCarousel movies={similarMovies}/>
-            </div>
-
-        </main>
+                {/* Similar movies */}
+                <div className="mt-3">
+                    <p className="title">SIMILAR MOVIES</p>
+                    <MovieCarousel movies={similarMovies}/>
+                </div>
+            </main>
+        
+            <footer className="container mt-5">
+                <Footer/>
+            </footer>
+        </>
     )
 }
 
