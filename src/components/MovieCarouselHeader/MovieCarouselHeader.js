@@ -1,13 +1,10 @@
 import React,{useReducer} from 'react'
-import { useGlobalContext } from '../../context';
 import './MovieCarouselHeader.scss'
 import reducer from './reducer.js'
 import Slide from './Slide'
 
-function MovieCrousel({offset}) {
-    // Get global context 
-    const {nowPlayingMovies} = useGlobalContext()
-
+function MovieCrousel({offset, nowPlayingMovies}) {
+  
     // Reducer inital state for the carousel
     const initialState = {
       slideIndex: 0,
