@@ -8,6 +8,7 @@ const GENRE_URL = `${URL}/genre/movie/list`
 const MOVIES_URL = `${URL}/discover/movie`
 const PERSON_URL = `${URL}/trending/person/week`
 const POSTER_URL = 'https://image.tmdb.org/t/p/original' // to get poster images
+const YOUTUBE_URL = "https://www.youtube.com/watch?v=" // to get the poster video
 
 
 // Function to fetch the movies that are playing now from the API 
@@ -137,17 +138,18 @@ export const fetchTopRatedMovies = async () => {
 }
 
 // Function that fetch movie detail for the given movie id
-export const fetchMovieDetail = async (id) => {
+export const fetchMovieDetail = async (movideId) => {
     try {
-        const { data } = await axios.get(`${MOVIE_URL}/${id}`, {
+        const { data } = await axios.get(`${MOVIE_URL}/${movideId}`, {
             params: {
                 api_key: API_KEY,
                 language: 'en_US'
             }
         });
-        const { backdrop_path, title} = data
+        const { id, backdrop_path, title} = data
         return {
-            poster: `${POSTER_URL}${backdrop_path}`,
+            id,
+            posterImage: `${POSTER_URL}${backdrop_path}`,
             title
         }
     } catch (error) {
@@ -155,8 +157,8 @@ export const fetchMovieDetail = async (id) => {
     }
 }
 
-// Function that fetch movie Videos
-export const fetchMovieVideos = async (id) => {
+// Function that fetch movie Video
+export const fetchMovieVideo = async (id) => {
     try {
         const { data } = await axios.get(`${MOVIE_URL}/${id}/videos`, {
             params: {
@@ -164,7 +166,7 @@ export const fetchMovieVideos = async (id) => {
                 language: 'en_US'
             }
         });
-        return data.results[0].key
+        return `${YOUTUBE_URL}${data.results[0].key}`
     } catch (error) {
         console.log(error)
     }
