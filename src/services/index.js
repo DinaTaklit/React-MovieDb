@@ -146,9 +146,11 @@ export const fetchMovieDetail = async (movideId) => {
                 language: 'en_US'
             }
         });
-        const { id, backdrop_path, title} = data
+        console.log(data)
+        const { id, backdrop_path, title, genres} = data
         return {
             id,
+            genres,
             posterImage: `${POSTER_URL}${backdrop_path}`,
             title
         }

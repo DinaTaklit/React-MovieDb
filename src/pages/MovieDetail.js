@@ -1,6 +1,8 @@
 import {useState, useEffect} from 'react'
 import { useGlobalContext } from '../context'
 import MovieDetailHeader from '../components/MovieDetail/MovieDetailHeader'
+import GenreList from '../components/GenreList/GenreList'
+
 import {
     fetchMovieDetail,
     fetchMovieVideo,
@@ -42,6 +44,9 @@ function MovieDetail({match}) {
     return (
         <main className="container">
             <MovieDetailHeader movieDetail={movieDetail} posterVideo={posterVideo}/>
+            {
+                movieDetail.genres && <GenreList genres={movieDetail.genres}/>
+            }
         </main>
     )
 }
