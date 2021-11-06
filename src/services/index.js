@@ -147,12 +147,19 @@ export const fetchMovieDetail = async (movideId) => {
             }
         });
         console.log(data)
-        const { id, backdrop_path, title, genres} = data
+        const { id, backdrop_path, title, genres,
+            vote_average, overview, release_date, runtime, budget, homepage} = data
         return {
             id,
             genres,
             posterImage: `${POSTER_URL}${backdrop_path}`,
-            title
+            title,
+            vote_average,
+            overview,
+            release_date,
+            runtime,
+            budget,
+            homepage
         }
     } catch (error) {
         console.log(error)
