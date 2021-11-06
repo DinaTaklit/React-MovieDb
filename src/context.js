@@ -8,8 +8,11 @@ export const AppProvider = ({children}) => {
     // Loading
     const [loading, setLoading] = useState(true)
 
-    // State for movies by genre
+    // Movies by genre state
     const [moviesByGenre, setMoviesByGenre] = useState([]);
+
+    // Modal state
+    const [modalIsOpen, setModalIsOpen] = useState(false);
 
 
     return (
@@ -18,6 +21,8 @@ export const AppProvider = ({children}) => {
             setLoading,
             moviesByGenre,
             setMoviesByGenre,
+            modalIsOpen,
+            setModalIsOpen
         }}>
             {children}
         </AppContext.Provider>
