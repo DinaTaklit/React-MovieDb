@@ -12,31 +12,36 @@ function MovieDetailHeader({movieDetail, posterVideo}) {
     const {setModalIsOpen} = useGlobalContext()
 
     return (
-        <section className="row">
+        <div className="row">
+            <div className="col">
+                
+                <MoviePlayerModal title ={title} posterVideo={posterVideo}/>
 
-            <MoviePlayerModal title ={title} posterVideo={posterVideo}/>
+                <div className="movie-poster" >
+                    <img
+                        className="img-fluid"
+                        src={posterImage}
+                        alt={title}
+                    ></img>
+                    <div className="movie-body">
+                        <div>
+                            <FaPlayCircle 
+                                className="play-icon"
+                                onClick={() => {
+                                    setModalIsOpen(true);
+                                }}
+                            />
+                        </div>
+                        <div
+                            className="caption"
+                        >
+                            {title}
+                        </div>
+                    </div>
+                </div>
 
-            <div className="MoviePoster" 
-                    style={{
-                        background: `url(${posterImage})`,
-                        }}
-                    >
-                    <div style={{zIndex:1}}>
-                        <FaPlayCircle 
-                            className="play-icon"
-                            onClick={() => {
-                                setModalIsOpen(true);
-                            }}
-                        />
-                    </div>
-                    <div
-                        className="caption"
-                    >
-                        {title}
-                    </div>
             </div>
-        </section>
-
+        </div>
     )
 }
 

@@ -34,7 +34,7 @@ function GenreList({genres}) {
 
     return (
         <div className="row mt-3">
-        <div className="col">
+        <div className="col-12">
           <ul className="list-inline">{genreList}</ul>
         </div>
       </div>
