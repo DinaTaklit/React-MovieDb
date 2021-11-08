@@ -1,5 +1,6 @@
 import {useState, useEffect} from 'react'
 import { useGlobalContext } from '../context'
+
 import MovieDetailHeader from '../components/MovieDetail/MovieDetailHeader'
 import GenreList from '../components/GenreList/GenreList'
 import MovieDetailInfo from '../components/MovieDetail/MovieDetailInfo'

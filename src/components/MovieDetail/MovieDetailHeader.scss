@@ -19,6 +19,21 @@
         aspect-ratio: fill;
     }
 
+    .back-button {
+        color: rgba($color: #fff, $alpha: .6);
+        position: absolute;
+        font-size: 1.5rem;
+        top: 1%;
+        left: 2%;
+        z-index: 2;
+        cursor: pointer;
+        animation: rightLeft 1s infinite;
+
+        &:hover {
+            color: rgba($color: #fff, $alpha: .9);
+        }
+    }
+
     .movie-body {
         position: absolute;
         width: 100%;
@@ -44,5 +59,19 @@
             background-color: white;
             cursor: pointer;
         }
+    }
+}
+
+@keyframes rightLeft {
+    0% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(-.4rem);
+    }
+
+    100% {
+        transform: translateX(0);
     }
 }

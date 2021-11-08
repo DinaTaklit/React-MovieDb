@@ -1,4 +1,8 @@
+import {Link} from 'react-router-dom'
+
 import {FaPlayCircle} from 'react-icons/fa'
+import {FaArrowLeft} from 'react-icons/fa'
+
 import './MovieDetailHeader.scss'
 import { useGlobalContext } from '../../context'
 
@@ -14,10 +18,17 @@ function MovieDetailHeader({movieDetail, posterVideo}) {
     return (
         <div className="row">
             <div className="col">
-                
+
+
                 <MoviePlayerModal title ={title} posterVideo={posterVideo}/>
 
                 <div className="movie-poster" >
+                    <Link to="/">
+                        <FaArrowLeft
+                                className="back-button"
+                        />
+                    </Link>
+     
                     <img
                         className="img-fluid"
                         src={posterImage}
