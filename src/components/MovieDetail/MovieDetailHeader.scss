@@ -1,37 +1,48 @@
-.MoviePoster {
-    background-size: 100% 100%;
-    background-position: center top;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.movie-poster {
     width: 100%;
-    height: 70vh;
+    height: 60vh;
     position: relative;
-}
 
-.MoviePoster::before {
-    position: absolute;
-    top: 0;
-    content: "";
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.4);
-}
+    &::after {
+        position: absolute;
+        top: 0;
+        left: 0;
+        content: "";
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
 
-.caption {
-    z-index: 1;
-    color: white;
-    text-align: center;
-    font-size: 2rem;
-}
+    img {
+        width: 100%;
+        height: 60vh;
+        aspect-ratio: fill;
+    }
 
-.play-icon {
-    font-size: 4rem;
-    color: #f4c10f;
-    border-radius: 50%;
-    background-color: white;
-    cursor: pointer;
+    .movie-body {
+        position: absolute;
+        width: 100%;
+        height: 60vh;
+        top: 0;
+        left: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 1;
+
+        .caption {
+            color: white;
+            text-align: center;
+            font-size: 2rem;
+        }
+
+        .play-icon {
+            font-size: 4rem;
+            color: #f4c10f;
+            border-radius: 50%;
+            background-color: white;
+            cursor: pointer;
+        }
+    }
 }
