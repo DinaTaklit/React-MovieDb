@@ -7,6 +7,7 @@ import MovieDetailInfo from '../components/MovieDetail/MovieDetailInfo'
 import PersonsCarousel from '../components/PersonsCarousel/PersonsCarousel'
 import MovieCarousel from '../components/MovieCarousel/MovieCarousel'
 import Footer from '../components/Footer/Footer'
+import Loading from '../components/Loading/Loading'
 
 import {
     fetchMovieDetail,
@@ -48,11 +49,9 @@ function MovieDetail({match}) {
     }, [movieId])
 
 
-    if(loading){
-        return(
-            <div>
-                Loading..
-            </div>
+    if(loading) {
+        return (
+            <Loading />
         )
     }
 

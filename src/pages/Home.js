@@ -5,6 +5,7 @@ import GenreList from '../components/GenreList/GenreList'
 import MovieCarousel from '../components/MovieCarousel/MovieCarousel'
 import PersonsCarousel from '../components/PersonsCarousel/PersonsCarousel'
 import Footer from '../components/Footer/Footer'
+import Loading from '../components/Loading/Loading'
 
 import {
     fetchMovies,
@@ -45,12 +46,9 @@ function Home() {
         fetchAPI()
     }, [])
 
-        
     if(loading) {
         return (
-            <div className="container">
-                Loading...
-            </div>
+            <Loading />
         )
     }
     return (
