@@ -1,7 +1,10 @@
-# React Fund Projects
+# React Movie DB app
 
-Improve your skills with the React JavaScript library by building 15 projects using React.
+This is a React movie application.
+- The app uses of react, react hooks (useState, useEffect, useContext)
+- Tha app consume [themoviedb API](https://www.themoviedb.org/documentation/api)
+- The API calls done by using `axios`
 
-## credits
+## Credits
 
-All credits goes for this react tuto from john smigla [Code 15 React Projects - Complete Course](https://www.youtube.com/watch?v=a_7Z7C_JCyo)
+This app got inspired from this [tuto](https://www.youtube.com/watch?v=XQ5bhrr8kRg&t=132s), the code was modified to follow the best practices of separation of concerns and DRY and other bast practices.
