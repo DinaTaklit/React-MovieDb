@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import './index.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import {BrowserRouter as Router} from 'react-router-dom'
+import { HashRouter as Router } from 'react-router-dom' 
+// import {BrowserRouter as Router} from 'react-router-dom' # does not work for gh-pages
 
 import {AppProvider} from './context'
 
