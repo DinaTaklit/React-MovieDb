@@ -1,6 +1,6 @@
 .movie-poster {
     width: 100%;
-    height: 60vh;
+    height: 70vh;
     position: relative;
 
     &::after {
@@ -15,7 +15,7 @@
 
     img {
         width: 100%;
-        height: 60vh;
+        height: 70vh;
         aspect-ratio: fill;
     }
 
@@ -37,7 +37,7 @@
     .movie-body {
         position: absolute;
         width: 100%;
-        height: 60vh;
+        height: 70vh;
         top: 0;
         left: 0;
         display: flex;
