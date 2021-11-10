@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from "react-router-dom";
 
 function Slide({ slide, offset }) {
     const active = offset === 0 ? true : null;
@@ -47,6 +48,7 @@ function Slide({ slide, offset }) {
     }
   
     return (
+     
       <div
         ref={ref}
         className="slide"
@@ -54,26 +56,28 @@ function Slide({ slide, offset }) {
         style={{
           "--offset": offset,
           "--dir": offset === 0 ? 0 : offset > 0 ? 1 : -1
-        }}
-      >
+        }}>
+       <Link to={`/movie/${slide.id}`}>
         <div
           className="slideBackground"
           style={{
             backgroundImage: `url('${slide.backPoster}')`
-          }}
-        />
+          }}>
+        </div>
+       
         <div
           className="slideContent"
           style={{
             backgroundImage: `url('${slide.backPoster}')`,
             objectFit: 'cover'
-          }}
-        >
+          }}>
           <div className="slideContentInner">
             <h2 className="slideTitle">{slide.title}</h2>
           </div>
         </div>
+        </Link>
       </div>
+
     );
 }
 
