@@ -8,14 +8,13 @@ import {BrowserRouter as Router} from 'react-router-dom'
 import {AppProvider} from './context'
 
 ReactDOM.render(
-
+  <React.StrictMode>
     <AppProvider>
-      <React.StrictMode>
-        <Router>
-          <App />
-        </Router>
-      </React.StrictMode>
-    </AppProvider>,
+      <Router>
+        <App />
+      </Router>
+    </AppProvider>
+  </React.StrictMode>,
 
   document.getElementById('root')
 );
